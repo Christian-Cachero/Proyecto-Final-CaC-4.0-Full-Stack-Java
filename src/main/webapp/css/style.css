@@ -1,0 +1,143 @@
+/*Estilos de comprar_ticket*/
+.anchoForm{
+     max-width: 49rem;
+}
+
+.margeNegativo{
+     margin-top: -0.25rem;
+}
+
+html, body{ 
+     height: 100vh !important; 
+}
+
+.border-info{
+     border-color: #B8DAFF !important;
+}
+
+.bg-info{
+     background-color: #CCE5FF !important;
+}
+
+.text-info::placeholder{
+     color: #004085;
+}
+
+.border-success{
+     border-color: #17A2B8 !important;
+}
+
+.border-primary{ 
+     border-color: #007BFF !important;
+}
+
+.p-cards{
+     padding-left: 0rem !important;
+     padding-right: 0rem !important;
+}
+/*////////////////////////////////////////*/
+
+
+body{
+     position: relative;
+}
+
+.p-footer{
+     padding-left: 3.1rem;
+     padding-right: 3.1rem;
+}
+
+.footer{
+     white-space: pre-line;
+     display: flex;
+     align-items: center;
+}
+
+.bg-footer-color {
+     background-color: #1D4157;
+}
+
+.btn-secondary{
+     background-color: #96C93E;
+}
+
+.btn-success{
+     background-color: #29A744;
+}
+.bg-img-honolulu{
+     background-color: #353A40;
+}
+
+
+.color-verde-tickets{
+     color: #3E9755;
+}
+
+/*tamaño grande*/
+@media screen and (min-width: 916px) {
+
+     .bg-img{
+          background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/ba1.jpg");
+          height: 100vh;
+          max-width: 100%;
+          background-size: cover;
+          position: relative;
+     }
+     .texto-img{
+          position: absolute;
+          bottom: 38%;
+          max-width: 25%;
+          right: 8.1rem;
+     }
+
+     .tamaño-form-oradores{
+          width: 50%;
+     }
+
+     .tamaño-cards{
+          width: 15.5rem;
+          height: 14rem;
+     }
+}
+
+/*tamaño pequeño*/
+@media screen and (max-width: 916px) {
+    .bg-img{
+         background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/ba1.jpg");
+         height: 100vh;
+         max-width: 100%;
+         background-size: cover;
+         position: relative;
+    }
+
+    .texto-img{
+         position: absolute;
+         top: 38%;
+         left: 8%;
+         max-width: max-content;
+         overflow-wrap: break-word;
+    }
+
+    .tamaño-form-oradores{
+         width: 100%;
+    }
+
+    .margin-top-input{
+        margin-top: 1rem !important;
+    }
+
+    .tamaño-cards{
+        height: 14rem;
+        margin-bottom: 0.75rem;
+        margin-left: 1.3rem;
+        margin-right: 1.3rem;
+    }
+
+    .margin-tablas-oradores{
+        margin-left: -0.3rem;
+    }
+}
+
+.sombra-img{
+     background-color: black;
+}
