@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 public class ModeloOrador implements Modelo{
 
@@ -21,7 +22,7 @@ public class ModeloOrador implements Modelo{
         //acá se implementa la "magia" de MySQL..
         try(Connection con = Conexion.getConnection();
             PreparedStatement ps = con.prepareStatement(GET_ALL_ORADORES_QUERY);
-            ResultSet rs = ps.executeQuery();){
+            ResultSet rs = ps.executeQuery()){
 
             ArrayList<Orador> oradores = new ArrayList<>();
             while(rs.next()){
@@ -36,15 +37,23 @@ public class ModeloOrador implements Modelo{
 
     @Override
     public Orador getOrador(int id) {
+
+        if (id <= 0) {
+            throw new IllegalArgumentException("El ID debe ser un número positivo.");
+        }
+
         try (Connection con = Conexion.getConnection();
-            PreparedStatement ps = con.prepareStatement(GET_ORADOR_QUERY);){
+            PreparedStatement ps = con.prepareStatement(GET_ORADOR_QUERY)){
 
             Orador ora = null;
             ps.setInt(1, id);
-            try (ResultSet rs = ps.executeQuery();){
-                rs.next();
-                ora = rsToOrador(rs);
-                return ora;
+            try (ResultSet rs = ps.executeQuery()){
+                if (rs.next()) {
+                    ora = rsToOrador(rs);
+                    return ora;
+                } else {
+                    throw new NoSuchElementException("El orador solicitado no existe.");
+                }
             }
 
         }catch (SQLException ex) {
@@ -56,8 +65,18 @@ public class ModeloOrador implements Modelo{
     @Override
     public int addOrador(Orador orador) {
 
+        if (orador == null) {
+            throw new IllegalArgumentException("El orador no puede ser nulo.");
+        }
+        if (orador.getNombre() == null || orador.getNombre().isEmpty()) {
+            throw new IllegalArgumentException("El nombre del orador no puede estar vacío.");
+        }
+        if (orador.getApellido() == null || orador.getApellido().isEmpty()) {
+            throw new IllegalArgumentException("El apellido del orador no puede estar vacío.");
+        }
+
         try (Connection con = Conexion.getConnection();
-            PreparedStatement ps = con.prepareStatement(ADD_ORADOR_QUERY);){
+            PreparedStatement ps = con.prepareStatement(ADD_ORADOR_QUERY)){
 
             int cantRegistrosAfectados;
             rellenarPreparedStatementWithDate(ps, orador);
@@ -72,6 +91,20 @@ public class ModeloOrador implements Modelo{
 
     @Override
     public int updateOrador(Orador orador) {
+
+        if (orador == null) {
+            throw new IllegalArgumentException("El orador no puede ser nulo.");
+        }
+        if (orador.getId() <= 0) {
+            throw new IllegalArgumentException("El ID del orador debe ser un número positivo.");
+        }
+        if (orador.getNombre() == null || orador.getNombre().isEmpty()) {
+            throw new IllegalArgumentException("El nombre del orador no puede estar vacío.");
+        }
+        if (orador.getApellido() == null || orador.getApellido().isEmpty()) {
+            throw new IllegalArgumentException("El apellido del orador no puede estar vacío.");
+        }
+
         try (Connection con = Conexion.getConnection();
              PreparedStatement ps = con.prepareStatement(UPDATE_ORADOR_QUERY);){
 
@@ -89,7 +122,16 @@ public class ModeloOrador implements Modelo{
 
     @Override
     public int removeOrador(int id) {
-        try( Connection con = Conexion.getConnection();
+        if (id <= 0) {
+            throw new IllegalArgumentException("El ID debe ser un número positivo.");
+        }
+
+        Orador oradorExistente = getOrador(id);
+        if (oradorExistente == null) {
+            throw new NoSuchElementException("No se puede eliminar el orador porque no existe.");
+        }
+
+        try(Connection con = Conexion.getConnection();
              PreparedStatement ps = con.prepareStatement(DELETE_ORADOR_QUERY);){
 
             int cantRegistrosAfectados;

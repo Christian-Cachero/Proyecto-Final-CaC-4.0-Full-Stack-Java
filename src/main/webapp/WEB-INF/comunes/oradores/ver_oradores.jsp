@@ -3,7 +3,6 @@
     <jsp:param name="titulo" value="Tabla de Oradores" />
 </jsp:include>
 
-
 <body data-bs-target=".navbar" data-bs-offset="0">
 <nav class="navbar navbar-expand-lg bg-body-tertiary bg-dark ps-5 pb-3 sticky-top" data-bs-theme="dark">
     <div class="container-fluid">
@@ -54,8 +53,6 @@
       </tbody>
     </table>
   </section>
-
-<!--  <%@ include file="../footer.html" %>-->
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N"

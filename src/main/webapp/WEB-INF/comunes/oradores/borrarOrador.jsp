@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <jsp:include page="../cabezahtml.jsp">
     <jsp:param name="titulo" value="Borrar Orador"/>
 </jsp:include>
@@ -42,10 +43,10 @@
             <h1>Borrar Orador</h1>
         </div>
         <div>
-             <form action="${pageContext.request.contextPath}/ver_oradores?accion=borrar&id=${oradorABorrar.id}"
+             <form action="${pageContext.request.contextPath}/ver_oradores?accion=borrar&id=${fn:escapeXml(oradorABorrar.id)}"
                    method="post" class="was-validated">
                  <div class="modal-body">
-                     <p class="text-center fs-2">¿Estás Seguro/a de que quieres borrar a ${oradorABorrar.nombre} ${oradorABorrar.apellido}?</p>
+                     <p class="text-center fs-2">¿Estás Seguro/a de que quieres borrar a ${fn:escapeXml(oradorABorrar.nombre)} ${fn:escapeXml(oradorABorrar.apellido)}?</p>
                  </div>
                  <div class="d-grid gap-2 d-md-block text-center">
                      <a href="${pageContext.request.contextPath}/ver_oradores" type="button" class="btn btn-outline-secondary btn-lg">Mejor no</a>

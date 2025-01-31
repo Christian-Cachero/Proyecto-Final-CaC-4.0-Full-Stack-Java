@@ -26,68 +26,6 @@
 			<version>${jakartaee}</version>
 			<scope>provided</scope>
 		</dependency>
-		<dependency>
-			<groupId>jakarta.platform</groupId>
-			<artifactId>jakarta.jakartaee-api</artifactId>
-			<version>10.0.0</version>
-		</dependency>
-
-		<!--Esta dependencia ocasiona to-do el error en Intellij IDEA, desactivar.-->
-		<!--        <dependency>-->
-		<!--            <groupId>javax.servlet</groupId>-->
-		<!--            <artifactId>jstl</artifactId>-->
-		<!--            <version>1.2</version>-->
-		<!--        </dependency>-->
-
-		<dependency>
-			<groupId>org.glassfish.web</groupId>
-			<artifactId>jakarta.servlet.jsp.jstl</artifactId>
-			<version>3.0.1</version>
-		</dependency>
-
-		<!-- /////////////////////////////////////////////////////////////////////// -->
-
-		<!--agregar esto solo si estás trabajando con versiones superiores a la 2.0.0 de glassfish-->
-		<!--jakarta-->
-		<dependency>
-			<groupId>jakarta.servlet.jsp.jstl</groupId>
-			<artifactId>jakarta.servlet.jsp.jstl-api</artifactId>
-			<version>3.0.0</version>
-		</dependency>
-
-		<dependency>
-			<groupId>jakarta.el</groupId>
-			<artifactId>jakarta.el-api</artifactId>
-			<version>5.0.1</version>
-		</dependency>
-
-		<dependency>
-			<groupId>jakarta.xml.bind</groupId>
-			<artifactId>jakarta.xml.bind-api</artifactId>
-			<version>4.0.0</version>
-		</dependency>
-
-		<!--tagLibs-->
-		<dependency>
-			<groupId>org.apache.taglibs</groupId>
-			<artifactId>taglibs-standard-spec</artifactId>
-			<version>1.2.5</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.apache.taglibs</groupId>
-			<artifactId>taglibs-standard-compat</artifactId>
-			<version>1.2.5</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.apache.taglibs</groupId>
-			<artifactId>taglibs-standard-impl</artifactId>
-			<version>1.2.5</version>
-			<scope>runtime</scope>
-		</dependency>
-
-		<!-- /////////////////////////////////////////////////////////////////////// -->
 
 		<dependency>
 			<groupId>org.apache.commons</groupId>
@@ -117,7 +55,6 @@
 					<failOnMissingWebXml>false</failOnMissingWebXml>
 				</configuration>
 			</plugin>
-
 		</plugins>
 	</build>
 </project>

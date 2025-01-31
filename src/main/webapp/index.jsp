@@ -15,7 +15,7 @@
             Bs As por primera vez a Argentina. Un evento para compartir con nuestra comunidad el conocimiento y
             experincia
             de los expertos que están creando el futuro de Internet. Ven a conocer a miembros del evento, a otros
-            estudiantes de Codo a Codo y los oradores de primer nivel que tenemos para ti. Te esperamos!
+            estudiantes de Codo a Codo y los oradores de primer nivel que tenemos para ti. ¡Te esperamos!
           </p>
           <a href="#convierteteOrador" button type="button" class="me-1 btn btn-outline-light">Quiero ser orador</a>
           <a button type="button" class="btn btn-success" href="compra_ticket.jsp">Comparar tickets</a>
@@ -112,7 +112,7 @@
           <h1>ORADOR</h1>
           <p>Anótate como orador para dar una <abbr
               title="Una charla ignite es un formato de conferencia de 5 minutos en la cual se exponen 20 diapositivas para apoyar el discurso, que pasan automáticamente cada 15 segundos y que tiene como objetivo contar una historia, una idea o visión.">charla
-              ignite</abbr>. Cuéntanos de qué quieres hablar!</p>
+              ignite</abbr>. ¡Cuéntanos de qué quieres hablar!</p>
         </div>
 
         <form id="formAgregarOrador" action="${pageContext.request.contextPath}/ver_oradores?accion=agregar" method="post" class="needs-validation" novalidate>
